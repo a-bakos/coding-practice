@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+  <title>Exceptions: throw</title>
+</head>
+
+<body>
+  
+  <form onSubmit="return checkPassword();">
+    Enter a password<br>
+    (8-12 characters, at least 1 number, no spaces)<br>
+    <input type="text" id="f1">
+    <input type="submit" value="sumbit">
+  </form>
+  
+  <script>
+    /*
+     * By adding one or more throw statements, you can define your own errors
+     * in a try...catch pair. This can be useful for dealing with wayward user
+     * behavior.
+     */
+    function checkPassword() {
+      try {
+        var pass = document.getElementById("f1").value;
+        if (pass.length < 8) {
+          throw "Please enter at least 8 characters.";
+        }
+        if (pass.indexOf(" ") !== -1) {
+          throw "No spaces in the password, please.";
+        }
+        var numberSomewhere = false;
+        for (var i = 0; i < pass.length; i++) {
+          if (isNaN(pass(i, i+1)) === false) {
+            numberSomewhere = true;
+            break;
+          }
+        }
+        if (numberSomewhere === false) {
+          throw "Include at least 1 number.";
+        }
+      }
+      catch(err) {
+        alert(err);
+      }
+    }
+  </script>
+</body>
+
+</html>
