@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+  <title>Exceptions: try and catch</title>
+</head>
+
+<body>
+  <script>
+    /*
+     * If the code breaks, JS does not tell you what's wrong.
+     * It'd be nice if JS reported a specific problem.
+     *
+     * That's what try...catch is for.
+     *
+     * The try...catch pair have limited usefulness. It is useful mainly for
+     * spotting variables that haven't been defined.
+     * */
+    function greetWorld() {
+      try {
+        var greeting = "Hello world!";
+        // Intentionally misspelled alert to demostrate try/catch
+        aler(greeting);
+      }
+      catch(err) {
+        var msg = "Houston, we have a problem:\n";
+        alert(msg + err);
+      }
+    }
+    
+    greetWorld();
+  </script>
+</body>
+
+</html>
