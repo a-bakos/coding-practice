@@ -3,16 +3,52 @@ document.getElementsByClassName
 document.getElementsByName
 document.getElementsByTagName
 
-/*indexOf
+/*
 selectedIndex
+
 parseFloat
+
 parseInt
-pop
-push
-shift
-unshift
-splice
-innerHTML*/
+
+pop:      removes the last element of an array
+push:     adds a new element to the end of an array
+
+shift:    removes the first element of an array
+unshift:  adds an element to the beginning of an array
+
+splice:   insert one or more elements anywhere in an array, while optionally
+          removing one or more elements that come after it
+          ex.: suppose we have an array with the elements "dog", "cat", "fly",
+          "bug", "ox". The following code adds "pig", "duck" and "emu" after
+          "cat" while removing "fly" and "bug" */
+          pets.splice(2, 2, "pig", "duck", "emu");
+          /* You could make additions without removing any elements:
+          The second argument becomes 0. */
+
+/*
+slice
+innerHTML
+
+toString()
+toFixed()
+Number
+
+Date object
+  getDay, getMonth ...
+
+Math
+  .random
+  .floor
+  .ceil ...
+
+*/
+
+function greetUser(greeting) { -> greeting is a parameter
+  alert(greeting);
+}
+
+var whatever = "Hello";
+greetUser(whatever); -> whatever is an argument
 
 // ----------------------------------------------------------------------------
 
@@ -71,7 +107,7 @@ var scoreAvg = Math.ceil(.00001);
 /**
  * floor
  * To force JS to round down to the nearest integer, use floor.
- * The following code rounds .99999 down to 0.
+ * The following code rounds .9999 down to 0.
  */
 var scoreAvg = Math.floor(.9999);
 /**
@@ -79,3 +115,4 @@ var scoreAvg = Math.floor(.9999);
  */
 
 // ----------------------------------------------------------------------------
+
