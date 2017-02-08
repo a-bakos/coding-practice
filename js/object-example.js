@@ -8,6 +8,14 @@ var day1 = {
 
 
 // Mark Myers book
+
+// You can create an object without any properties:
+var objectName = {};
+
+// If you want to create a property now and assign it a value later, you can
+// create it with a value of undefined:
+objectName.property = undefined;
+
 var plan1 = {
   name: "basic", // name -> property (of the object); "basic" -> value (of the object's property)
   price: 3.99,
