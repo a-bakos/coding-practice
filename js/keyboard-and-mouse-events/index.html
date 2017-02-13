@@ -17,6 +17,8 @@
     }
   </style>
   
+  <button>Click me and I'll tell which button you used</button>
+  
   <script>
     addEventListener("keydown", function(event) {
       if (event.keyCode == 86) {
@@ -44,6 +46,18 @@
       document.body.appendChild(dot);
     });
 
+    var button = document.querySelector("button");
+    button.addEventListener("mousedown", function(event) {
+      if (event.which == 1) {
+        alert("LEFT");
+      }
+      else if (event.which == 2) {
+        alert("MID");
+      }
+      else if (event.which == 3) {
+        alert("RIGHT");
+      }
+    });
   </script>
 </body>
 </html>
