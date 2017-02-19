@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+h1,
+.centered {
+  text-align: center;
+  }
+
+img {
+  display: block;
+  margin: auto;
+  width: 500px;
+}
+
+h2 {
+  display: inline-block;
+  cursor: pointer;
+}
