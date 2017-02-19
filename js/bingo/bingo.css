@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+body {
+  background-color: antiquewhite;
+  font-family: "Lucida Grande", Verdana;
+  color: black;
+  }
+
+h1 {
+  font-size: 28px;
+  color: red;
+  }
+
+table {
+  border-collapse: collapse;
+  }
+
+th,
+td {
+  width: 10%;
+  padding: 10px;
+  border: 2px solid #666;
+  text-align: center;
+  }
+
+#free,
+.picked-bg {
+  background-color: #f66;
+  }
+
+.winning-bg {
+  background-color: chartreuse;
+  }
