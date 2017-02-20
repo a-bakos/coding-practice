@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+  <title>Select and go navigation</title>
+</head>
+  <body>
+    <form action="">
+      <select id="new-location">
+        <option value="chapter1.html">Chapter 1</option>
+        <option value="chapter2.html">Chapter 2</option>
+        <option value="chapter3.html">Chapter 3</option>
+        <option value="chapter4.html">Appendix</option>
+        <option value="chapter5.html">Acknowledgements</option>
+      </select>
+    </form>
+    <script>
+      window.onload = initForm;
+      window.onunload = function() {};
+
+      function initForm() {
+        document.getElementById("new-location").selectedIndex = 0;
+        document.getElementById("new-location").onchange = jumpPage;
+      }
+
+      function jumpPage() {
+        var newLoc = document.getElementById("new-location");
+        var newPage = newLoc.options[newLoc.selectedIndex].value;
+
+        if (newPage != "") {
+          window.location = newPage;
+        }
+      }
+    </script>
+    <noscript>
+      <input type="submit" value="Go there">
+    </noscript>
+  </body>
+</html>
