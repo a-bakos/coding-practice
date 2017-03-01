@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+body {
+  background-color: antiquewhite;
+  color: rgb(20,20,20);
+  font-size: 16px;
+  font-family: sans-serif;
+  }
+
+#chartType {
+  float: left;
+  width: 200px;
+  border: 1px solid green;
+  }
+
+th {
+  font-size: 18px;
+  padding-left: 20px;
+  padding-right: 15px;
+  }
+
+#chartArea {
+  border: 1px solid blue;
+  background-color: rgba(255,0,0,0.25);
+  }
+
+.horiz th { border-right: 1px solid #000; }
+
+.horiz img {
+  height: 15px;
+  vertical-align: bottom;
+  margin-right: 10px;
+  }
+
+.vert {
+  text-align: center;
+  vertical-align: bottom;
+  }
+
+.vert th {
+  border-left: 1px solid #000;
+  border-bottom: 1px solid #000;
+  }
+
+.vert img {
+  width: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 10px;
+  }
