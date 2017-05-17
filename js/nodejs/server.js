@@ -1,13 +1,21 @@
-// Here's a working HTTP server implemented in nodeJS
-
 var http = require("http");
+var url = require("url");
 
-function start() {
+function start(route, handle) {
   function onRequest(request, response) {
-    console.log("Request received.");
-    response.writeHead(200, {"Content-Type": "text/plain"}); // first arg: http status
-    response.write("Hello World"); // send content in the HTTP body
-    response.end(); // finish response
+    var postData = "";
+    var pathname = url.parse(request.url).pathname;
+
+    request.setEncoding("utf8");
+
+    request.addListener("data", function(postDataChunk) {
+      postData += postDataChunk;
+      console.log("Received POST data chunk '" + postDataChunk + "'.");
+    });
+
+    request.addListener("end", function() {
+      route(handle, pathname, response, postData);
+    });
   }
 
   http.createServer(onRequest).listen(8888);
@@ -15,11 +23,3 @@ function start() {
 }
 
 exports.start = start;
-
-/*
- * The first line requires the http module that comes with NodeJs and makes
- * it accessible through the variable http.
- * Then, call one of the functions the http module offers (createServer), which
- * returns an object, and this object has the listen() method, and takes the
- * port number our server is going to listen on.
- */
