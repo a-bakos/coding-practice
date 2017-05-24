@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Complex component</title>
+    <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+
+    <style>
+      .container {
+        padding: 50px;
+        background-color: bisque;
+        }
+    </style>
+  </head>
+
+  <body>
+    <div class="container"></div>
+
+    <script type="text/babel">
+      var destination = document.querySelector(".container");
+
+      var Card = React.createClass({
+        render: function() {
+          var cardStyle = {
+            height: 200,
+            width: 150,
+            padding: 0,
+            backgroundColor: "#fff",
+            boxShadow: "0 0 5px #666"
+          };
+
+          return (
+            <div style={cardStyle}>
+              <Square />
+              <Label />
+            </div>
+          );
+        }
+      });
+
+      var Label = React.createClass({
+        render: function() {
+          var labelStyle = {
+            fontFamily: "monospace",
+            fontWeight: "bold",
+            textAlign: "center",
+            fontSize: 26,
+            padding: 13,
+            margin: 0
+          };
+
+          return (
+            <p style={labelStyle}>#FF6663</p>
+          );
+        }
+      });
+
+      var Square = React.createClass({
+        render: function() {
+          var squareStyle = {
+            height: 150,
+            backgroundColor: "#ff6663"
+          };
+
+          return (
+            <div style={squareStyle}>
+      
+            </div>
+          );
+        }
+      });
+
+      ReactDOM.render(
+        <div>
+          <Card />
+        </div>,
+        destination
+      );
+
+    </script>
+  </body>
+</html>
