@@ -16,17 +16,17 @@
       var HelloWorld = React.createClass({
         render: function() {
           return (
-            <p>Hello, componentized world! I am playing around with components a bit.</p>
+            <p>Hello, {this.props.greetTarget}!</p>
           );
         }
       });
 
       ReactDOM.render(
         <div>
-          <HelloWorld />
-          <HelloWorld />
-          <HelloWorld />
-          <HelloWorld />
+          <HelloWorld greetTarget="Tony Stark"/>
+          <HelloWorld greetTarget="Bruce Banner"/>
+          <HelloWorld greetTarget="Charles Xavier"/>
+          <HelloWorld greetTarget="Groot"/>
         </div>,
         destination
       );
