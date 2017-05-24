@@ -32,8 +32,8 @@
 
           return (
             <div style={cardStyle}>
-              <Square />
-              <Label />
+              <Square color={this.props.color}/>
+              <Label color={this.props.color}/>
             </div>
           );
         }
@@ -42,16 +42,16 @@
       var Label = React.createClass({
         render: function() {
           var labelStyle = {
+            padding: 13,
+            margin: 0,
             fontFamily: "monospace",
             fontWeight: "bold",
-            textAlign: "center",
             fontSize: 26,
-            padding: 13,
-            margin: 0
+            textAlign: "center"
           };
 
           return (
-            <p style={labelStyle}>#FF6663</p>
+            <p style={labelStyle}>{this.props.color}</p>
           );
         }
       });
@@ -60,7 +60,7 @@
         render: function() {
           var squareStyle = {
             height: 150,
-            backgroundColor: "#ff6663"
+            backgroundColor: this.props.color
           };
 
           return (
@@ -73,7 +73,9 @@
 
       ReactDOM.render(
         <div>
-          <Card />
+          <Card color="#df6663"/>
+          <Card color="#a65663"/>
+          <Card color="#df6ca3"/>
         </div>,
         destination
       );
