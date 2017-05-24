@@ -25,14 +25,14 @@
           var letterStyle = {
             padding: 10,
             margin: 10,
-            backgroundColor: "#ffde00",
+            backgroundColor: this.props.bgcolor,
             color: "darkslategray",
             fontFamily: "monospace",
             fontSize: 40,
             textAlign: "center",
             display: "inline-block"
           };
-          
+
           return (
             <div style={letterStyle}>
               {this.props.children}
@@ -41,14 +41,15 @@
         }
       });
 
+      var colorBlue = "#58b3ff";
 
       ReactDOM.render(
         <div>
-          <Letter>A</Letter>
-          <Letter>E</Letter>
-          <Letter>I</Letter>
-          <Letter>O</Letter>
-          <Letter>U</Letter>
+          <Letter bgcolor={colorBlue}>A</Letter>
+          <Letter bgcolor="#ff605f">E</Letter>
+          <Letter bgcolor="#ffd52e">I</Letter>
+          <Letter bgcolor="#49dd8e">O</Letter>
+          <Letter bgcolor="#ae99ff">U</Letter>
         </div>,
         destination
       );
