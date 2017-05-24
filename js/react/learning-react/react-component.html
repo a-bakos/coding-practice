@@ -9,14 +9,26 @@
 
   <body>
     <div class="container"></div>
+    <div class="container-2"></div>
 
     <script type="text/babel">
       var destination = document.querySelector(".container");
+      var destinationNew = document.querySelector(".container-2");
 
       var HelloWorld = React.createClass({
         render: function() {
           return (
             <p>Hello, {this.props.greetTarget}!</p>
+          );
+        }
+      });
+
+      var Buttonify = React.createClass({
+        render: function() {
+          return (
+            <div>
+              <button type={this.props.behaviour}>{this.props.children}</button>
+            </div>
           );
         }
       });
@@ -29,6 +41,11 @@
           <HelloWorld greetTarget="Groot"/>
         </div>,
         destination
+      );
+
+      ReactDOM.render(
+        <Buttonify behaviour="Submit">Send data</Buttonify>,
+        destinationNew
       );
     </script>
   </body>
