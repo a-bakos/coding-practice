@@ -16,13 +16,18 @@
       var HelloWorld = React.createClass({
         render: function() {
           return (
-            <p>Hello, componentized world!</p>
+            <p>Hello, componentized world! I am playing around with components a bit.</p>
           );
         }
       });
 
       ReactDOM.render(
-        <HelloWorld />,
+        <div>
+          <HelloWorld />
+          <HelloWorld />
+          <HelloWorld />
+          <HelloWorld />
+        </div>,
         destination
       );
     </script>
