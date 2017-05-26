@@ -68,6 +68,7 @@
       // Counter component
       var Counter = React.createClass({
         getInitialState: function() {
+          console.log("Hello from counter initial state");
           return {
             counterDisplay: 0,
             isInCart: 0,
@@ -145,7 +146,7 @@
 
       // Veg list to render:
       var vegList = [
-        "Carrot", "Parley", "Spring onion", "Red onion",
+        "Carrot", "Parsley", "Spring onion", "Red onion",
         "Pepper", "Butternut", "Tomato", "Spinach",
         "Salad", "Leek"
       ];
