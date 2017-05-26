@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+
+    <style>
+      body {
+        background-color: bisque;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container"></div>
+
+    <script type="text/babel">
+
+      var destination = document.querySelector(".container");
+
+      // The title of our item -- displays the name of the vegetable
+      var ItemTitle = React.createClass({
+        render: function() {
+
+          // Style of the veg name:
+          var titleStyle = {
+            textAlign: "left",
+            fontFamily: "sans-serif",
+            fontSize: 36,
+            color: "#333"
+          }
+
+          return (
+            <div style={titleStyle}>
+              {this.props.titleDisplay}
+            </div>
+          );
+        }
+      });
+
+      // The main container of the items
+      var ItemParent = React.createClass({
+        render: function() {
+
+          // Container style
+          var parentStyle = {
+            backgroundColor: "#084",
+            border: "1px solid grey",
+            width: "90%",
+            height: 100,
+            margin: 5,
+            padding: 10,
+            borderTopRightRadius: 20,
+            borderBottomRightRadius: 20
+          }
+
+          return (
+            <div style={parentStyle}>
+              <ItemTitle {...this.props} />
+              <Counter />
+            </div>
+          );
+        }
+      }); // ItemParent
+
+      // Counter component
+      var Counter = React.createClass({
+        getInitialState: function() {
+          return {
+            counterDisplay: 0,
+            isInCart: 0,
+          };
+        },
+
+        incrementCounter: function(e) {
+          this.setState({
+            counterDisplay: this.state.counterDisplay + 1
+          });
+        },
+        
+        decrementCounter: function(e) {
+          if (this.state.counterDisplay > 0) {
+            this.setState({
+              counterDisplay: this.state.counterDisplay - 1
+            });
+          }
+        },
+
+        addToCart: function(e) {
+          this.setState({
+            isInCart: this.state.isInCart + this.state.counterDisplay,
+            counterDisplay: this.state.counterDisplay - this.state.counterDisplay
+          });
+        },
+
+        removeFromCart: function(e) {
+          this.setState({
+            isInCart: this.state.isInCart - this.state.isInCart
+          });
+        },
+
+        orderItem: function(e) {
+          this.setState({
+            isInCart: this.state.isInCart - this.state.isInCart,
+          });
+        },
+        
+        render: function() {
+          var counterStyle = {
+            color: "white",
+            fontSize: 30,
+            fontWeight: "bold",
+            fontFamily: "monospace"
+          }
+          
+          var buttonStyle = {
+            margin: 15,
+            width: 100,
+            height: 30
+          }
+
+          var textStyle = {
+            display: "inline-block",
+            margin: 0,
+            padding: 0
+          }
+
+          return (
+            <div style={counterStyle}>
+              {this.state.counterDisplay}
+              <button onClick={this.incrementCounter} style={buttonStyle}>+</button>
+              <button onClick={this.decrementCounter} style={buttonStyle}>-</button>
+              <button onClick={this.addToCart} style={buttonStyle}>Add to cart</button>
+              <p style={textStyle}>
+                In the cart: {this.state.isInCart}
+              </p>
+              <button onClick={this.removeFromCart} style={buttonStyle}>Remove</button>
+              <button onClick={this.orderItem} style={buttonStyle}>Order!</button>
+            </div>
+          );
+        }
+      });
+
+      // Veg list to render:
+      var vegList = [
+        "Carrot", "Parley", "Spring onion", "Red onion",
+        "Pepper", "Butternut", "Tomato", "Spinach",
+        "Salad", "Leek"
+      ];
+
+      var vegListRenderData = [];
+
+      // Wrap each veg item in a parent element
+      for (var i = 0; i < vegList.length; i++) {
+        var veg = vegList[i];
+        vegListRenderData.push(<ItemParent key={i + veg} titleDisplay={veg} />)
+      }
+
+      ReactDOM.render(
+        <div>
+          {vegListRenderData}
+        </div>,
+        destination
+      );
+
+    </script>
+  </body>
+</html>
