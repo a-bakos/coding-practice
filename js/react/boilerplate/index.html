@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SPA boilerplate</title>
+    <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <script src="https://npmcdn.com/react-router@3.0.2/umd/ReactRouter.min.js"></script>
+
+    <style>
+    </style>
+  </head>
+
+  <body>
+    <div class="container"></div>
+    
+    <script type="text/babel">
+
+      var destination = document.querySelector(".container");
+
+      var { Router,
+        Route,
+        IndexRoute,
+        IndexLink,
+        hashHistory,
+        Link } = ReactRouter;
+
+      var App = React.createClass({
+        render: function() {
+          return (
+            <div>
+              <ul className="">
+                <li><IndexLink to="/" activeClassName="active">Home</IndexLink></li>
+                <li><Link to="/" activeClassName="active"></Link></li>
+                <li><Link to="/" activeClassName="active"></Link></li>
+              </ul>
+              <div className="">
+                {this.props.children}
+              </div>
+            </div>
+          )
+        }
+      });
+
+      var Home = React.createClass({
+        render: function() {
+            return (
+              <div>
+                <h2>HELLO</h2>
+                <p>home content</p>
+              </div>
+            );
+          }
+      });
+
+/*
+            <Route path="pathname" component={to display} />
+ * */
+
+      ReactDOM.render(
+        <Router history={hashHistory}>
+          <Route path="/" component={App}>
+            <IndexRoute component={Home}/>
+          </Route>
+        </Router>,
+        destination
+      );
+  
+    </script>
+  </body>
+</html>
