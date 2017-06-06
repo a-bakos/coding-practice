@@ -5,10 +5,10 @@ var DEV = path.resolve(__dirname, "dev");
 var OUTPUT = path.resolve(__dirname, "output");
  
 var config = {
-  entry: DEV + "/index.jsx",
+  entry: DEV + "./src/index.jsx",
   output: {
     path: OUTPUT,
-    filename: "bundle.js"
+    filename: "main.js"
   },
   module: {
     loaders: [{
