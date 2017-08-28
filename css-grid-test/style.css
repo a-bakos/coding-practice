@@ -1,0 +1,152 @@
+@charset "UTF-8";
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.5em;
+}
+
+/* GRID COLUMNS */
+
+.grid-1 {
+  display: grid;
+  grid-template-columns: 25% 50% 25%; /* = 3 columns' width in order */
+
+  padding: 1%;
+  height: 25vh;
+  background-color: rgba(0,255,0,0.1);
+}
+
+.grid-1-col {
+  padding: 1%;
+  background-color: rgba(255,0,0,0.5);
+  border-right: 1px dashed black;
+}
+.grid-1-col:last-child {
+  border: none;
+}
+
+/* GRID 1B */
+
+.grid-1b {
+  display: grid;
+  grid-template-columns: 1fr 70% 1fr; /* = 3 columns' width. fr = fraction aka the remaining space */
+
+  padding: 1%;
+  height: 25vh;
+  background-color: rgba(0,255,0,0.1);
+}
+
+.grid-1b-col {
+  padding: 1%;
+  background-color: rgba(255,0,255,0.5);
+  border-right: 1px dashed black;
+}
+.grid-1b-col:last-child {
+  border: none;
+}
+
+/* GRID - REPEAT */
+
+.grid-1c {
+  display: grid;
+  grid-template-columns: repeat(5, calc(100% / 5)); /* = 5 columns equally distributed */
+
+  padding: 1%;
+  height: 25vh;
+  background-color: rgba(0,255,0,0.1);
+}
+
+.grid-1c-col {
+  padding: 1%;
+  background-color: rgba(255,255,0,0.5);
+  border-right: 1px dashed black;
+}
+.grid-1c-col:last-child {
+  border: none;
+}
+
+/* GRID - auto-fit */
+
+.grid-1d {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 200px);
+
+  padding: 1%;
+  height: 25vh;
+  background-color: rgba(0,0,255,0.1);
+}
+
+.grid-1d-col {
+  padding: 1%;
+  background-color: rgba(0,255,0,0.5);
+  border-right: 1px dashed black;
+}
+.grid-1d-col:last-child {
+  border: none;
+}
+
+/* GRID - minmax (!!!) */
+
+.grid-1e {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+  padding: 1%;
+  height: 25vh;
+  background-color: rgba(0,0,255,0.1);
+}
+
+.grid-1e-col {
+  padding: 1%;
+  background-color: rgba(125,125,0,0.5);
+  border-right: 1px dashed black;
+}
+.grid-1e-col:last-child {
+  border: none;
+}
+
+/* GRID - GAP */
+
+.grid-1f {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1%;
+
+  padding: 1%;
+  height: 25vh;
+  background-color: rgba(0,0,255,0.1);
+}
+
+.grid-1f-col {
+  padding: 1%;
+  background-color: rgba(125,0,125,0.5);
+  border-right: 1px dashed black;
+}
+.grid-1f-col:last-child {
+  border: none;
+}
+
+/* GRID ROWS */
+
+.grid-2 {
+  display: grid;
+  grid-template-rows: 25% 50% 25%;
+
+  padding: 1%;
+  height: 25vh;
+  background-color: rgba(0,0,255,0.1);
+}
+.grid-2-row {
+  padding: 1%;
+  background-color: rgba(255,0,0,0.5);
+  border-bottom: 1px dashed black;
+}
+.grid-2-row:last-child {
+  border: none;
+}

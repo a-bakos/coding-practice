@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <title>CSS Grid test</title>
+  </head>
+  <body>
+
+    <a href="http://csskarma.com/blog/css-grid-layout/amp/" target="_blank"><h1>Nice artcile on grids</h1></a>
+
+    <h1>GRID - COLUMNS</h1>
+    <div class="grid-1"> <!-- Grid parent -->
+      <div class="grid-1-col">This is column 1</div> <!-- Children / Track -->
+      <div class="grid-1-col">This is column 2</div>
+      <div class="grid-1-col">This is column 3</div>
+    </div>
+
+    <h2>1fr 70% 1fr</h2>
+    <p>This code will set a center column to 66% and the remaining two columns with take up the rest of the space equally.</p>
+    <div class="grid-1b"> <!-- Grid parent -->
+      <div class="grid-1b-col">width: 1fr</div> <!-- Children / Track -->
+      <div class="grid-1b-col">width: 70%</div>
+      <div class="grid-1b-col">width: 1fr</div>
+    </div>
+
+    <h2>GRID - REPEAT</h2>
+    <div class="grid-1c"> <!-- Grid parent -->
+      <div class="grid-1c-col">This is column 1</div> <!-- Children / Track -->
+      <div class="grid-1c-col">This is column 2</div>
+      <div class="grid-1c-col">This is column 3</div>
+      <div class="grid-1c-col">This is column 4</div>
+      <div class="grid-1c-col">This is column 5</div>
+    </div>
+
+    <h2>GRID - auto-fit</h2>
+    <p>The auto-fit keyword is like saying, “fit as many columns as you can in this track based on the applied rules.” This is a nice way to create flexible layouts if you have a variable amount of columns in a row. These columns will also reflow based on screen width, so while you may have 5 columns on a wide screen, you may only have 2 on a narrow screen, depending on the available space. Auto placement of columns is a powerful feature in CSS Grid Layout, but the coolest part is that this is done without any media queries, just some nice clean, smart CSS.</p>
+    <div class="grid-1d"> <!-- Grid parent -->
+      <div class="grid-1d-col">This is column 1</div> <!-- Children / Track -->
+      <div class="grid-1d-col">This is column 2</div>
+      <div class="grid-1d-col">This is column 3</div>
+      <div class="grid-1d-col">This is column 4</div>
+      <div class="grid-1d-col">This is column 5</div>
+    </div>
+
+    <h2>GRID - minmax (!!!)</h2>
+    <p>The minmax() function defines an upper and lower limit for your grid track size. In our case we’re saying. “columns in this track can’t be smaller than 200px and they can be as large as 1 fraction unit (the rest of the space).”</p>
+    <div class="grid-1e"> <!-- Grid parent -->
+      <div class="grid-1e-col">This is column 1</div> <!-- Children / Track -->
+      <div class="grid-1e-col">This is column 2</div>
+      <div class="grid-1e-col">This is column 3</div>
+      <div class="grid-1e-col">This is column 4</div>
+      <div class="grid-1e-col">This is column 5</div>
+    </div>
+
+    <h2>GRID - GAP</h2>
+    <p>The gap is the amount of space in between each grid item.</p>
+    <div class="grid-1f"> <!-- Grid parent -->
+      <div class="grid-1f-col">This is column 1</div> <!-- Children / Track -->
+      <div class="grid-1f-col">This is column 2</div>
+      <div class="grid-1f-col">This is column 3</div>
+    </div>
+
+    <h1>GRID - ROWS</h1>
+    <div class="grid-2"> <!-- Grid parent -->
+      <div class="grid-2-row">This is row 1</div> <!-- Children / Track -->
+      <div class="grid-2-row">This is row 2</div>
+      <div class="grid-2-row">This is row 3</div>
+    </div>
+
+
+  </body>
+</html>
