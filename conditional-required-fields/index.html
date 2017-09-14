@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+  <title>Conditional required fields</title>
+  <style>
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+p {
+	display: inline-block;
+	color: red;
+	
+}
+
+body {
+	background-color: rgba(0,150,150,0.2);
+	font-size: 20px;
+	font-family: "Calibri", sans-serif;
+	color: rgba(0,0,0,0.75);
+	line-height: 2em;
+}
+
+fieldset {
+	border: 1px solid rgba(0,0,0,0.25);
+}
+hr {
+	border: none;
+	border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+:required {
+	background-color: rgba(255,0,0,1);
+	box-shadow: 0 0 10px 0 rgba(255,0,0,0.75);
+}
+
+.required-flag {
+	padding: 0.25%;
+	vertical-align: middle;
+	background: rgba(255,255,255,0.25);
+	font-size: inherit;
+	color: red;
+}
+
+select,
+input {
+	padding: 0.25%;
+	vertical-align: middle;
+	border: none;
+	background-color: rgba(0,50,150,0.25);
+	
+	font-family: inherit;
+	font-size: inherit;
+	transition: 0.25s;
+}
+
+#submit-btn {
+	margin-top: 1%;
+	padding: 1%;
+	background-color: rgba(0,50,150,0.5);
+}
+  </style>
+</head>
+<body>
+<fieldset>
+	<form>
+		
+		<strong>Please select from the list:</strong>
+		<select id="select-list" name="select">
+			<option selected disabled>Choose an option</option>
+			<option id="opt_published-articles" value="published-articles">Accessing my published article(s)</option>
+			<option id="opt_reusing-articles" value="reusing-articles">Reusing my article somewhere else</option>
+			<option id="opt_purchasing-copy" value="purchasing-copy">Purchasing a copy of a journal issue</option>
+			<option id="opt_extra-option" value="extra-option">An extra option</option>
+		</select>
+		
+		<hr />
+
+		Journal Title:
+		<input id="input_journal-title" type="text" name="Journal title"><br />
+		DOI Field:
+		<input id="input_doi-field" type="text" name="DOI field"><br />
+		Extra Field:
+	 <input id="input_extra-field" type="text" name="Extra field"><br />
+
+		<input id="submit-btn" type="submit" value="Submit">
+	</form>
+</fieldset>
+<script>
+var select_list = document.querySelector("#select-list");
+
+var opt_published_articles = document.querySelector("#opt_published-articles");
+var opt_reusing_articles = document.querySelector("#opt_reusing-articles");
+var opt_purchasing_copy = document.querySelector("#opt_purchasing-copy");
+
+var input_journal_title = document.querySelector("#input_journal-title");
+var input_doi_field = document.querySelector("#input_doi-field");
+
+var required_flag = "<span class='required-flag'> * required field</span>";
+
+// Conditional logic
+
+select_list.addEventListener("change", function() {
+	
+	if (opt_published_articles.selected || opt_reusing_articles.selected) {
+		input_journal_title.setAttribute("required", "");
+		input_doi_field.setAttribute("required", "");
+	}
+	else if (opt_purchasing_copy.selected) {
+		input_doi_field.removeAttribute("required");
+		input_journal_title.setAttribute("required", "");
+
+		/*
+		// TEST only
+		if (!document.querySelector(".required-flag")) {
+			input_journal_title.insertAdjacentHTML("afterend", required_flag);
+  }
+		*/
+	}
+	else {
+		input_journal_title.removeAttribute("required");
+		input_doi_field.removeAttribute("required");
+	}
+	
+}, false);
+
+</script>
+</body>
+</html>
