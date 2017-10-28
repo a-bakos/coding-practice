@@ -1,4 +1,10 @@
 /**
+ * Define site URL
+ * used for sitemap generation
+ */
+const site_url = 'http://www.whateva.com';
+
+/**
  * Sitemap generation
  */
 gulp.task('sitemap', () => {
