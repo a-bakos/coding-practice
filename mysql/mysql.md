@@ -31,3 +31,9 @@ SELECT * FROM users WHERE pass = SHA1('bingo');
 
 SELECT * FROM users WHERE (user_id < 10) OR (user_id > 20);
 SELECT * FROM users WHERE user_id NOT BETWEEN 10 and 20;
+
+SELECT * FROM users WHERE pass = '' ORDER BY email DESC;
+
+SELECT first_name, last_name FROM users ORDER BY last_name ASC, first_name ASC;
+
+SELECT * FROM user WHERE last_name != '' ORDER BY registration_date DESC;
