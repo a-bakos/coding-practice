@@ -36,4 +36,34 @@ SELECT * FROM users WHERE pass = '' ORDER BY email DESC;
 
 SELECT first_name, last_name FROM users ORDER BY last_name ASC, first_name ASC;
 
-SELECT * FROM user WHERE last_name != '' ORDER BY registration_date DESC;
+SELECT * FROM users WHERE last_name != '' ORDER BY registration_date DESC;
+
+SELECT * FROM users LIMIT 10;
+
+// y records returned, starting at x
+SELECT * FROM users LIMIT x, y;
+SELECT * FROM users LIMIT 10, 10; // records 11 through 20
+
+SELECT which_columns FROM tablename WHERE conditions ORDER BY column LIMIT x;
+
+// select last 5 registrated users
+SELECT first_name, last_name FROM users ORDER BY registration_date DESC LIMIT 5;
+
+// Update records
+SELECT user_id FROM users WHERE last_name='Cooper' AND first_name='Sheldon';
+UPDATE users SET pass=SHA1('password) WHERE user_id=10 LIMIT 1;
+
+// Delete a record
+DELETE FROM tablename WHERE condition;
+
+SELECT user_id FROM users WHERE fist_name = 'Gunther' AND last_name = 'Centralperk';
+SELECT * FROM users WHERE user_id = 10;
+DELETE FROM users WHERE user_id = 10 LIMIT 1;
+
+// The preferred way to empty a table is:
+TRUNCATE TABLE tablename;
+// To delete all of the data in a table, as well as the table itself:
+DROP TABLE tablename;
+// To delete an entire database, including every table therein and all of its data:
+DROP DATABASE databasename;
+
