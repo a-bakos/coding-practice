@@ -21,8 +21,13 @@ SELECT name FROM people WHERE birthday = '2000-01-01';
 SELECT * FROM users WHERE last_name IN ('Geller', 'Green', 'Bing', 'Tribbiani', 'Buffay');
 
 SELECT first_name FROM users WHERE last_name = 'Geller';
+SELECT first_name FROM users WHERE last_name LIKE 'G%';
 
 SELECT * FROM users WHERE email IS NULL;
 // an empty string is different than NULL
 SELECT * FROM users WHERE pass = '';
 
+SELECT * FROM users WHERE pass = SHA1('bingo');
+
+SELECT * FROM users WHERE (user_id < 10) OR (user_id > 20);
+SELECT * FROM users WHERE user_id NOT BETWEEN 10 and 20;
