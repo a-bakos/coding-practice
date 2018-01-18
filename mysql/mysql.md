@@ -110,3 +110,82 @@ DROP TABLE tablename;
 
 **DROP DATABASE databasename;**
 
+---
+
+// Alias
+
+**SELECT registratio_date AS Reg FROM users;**
+
+---
+
+### TEXT FUNCTIONS
+
+CONCAT()
+CONCAT_WS()
+LENGTH()
+LEFT()
+RIGHT()
+TRIM()
+UPPER()
+LOWER()
+REPLACE()
+SUBSTRING()
+
+---
+
+### NUMERIC FUNCTIONS
+
+ABS()
+CEILING()
+FLOOR()
+FORMAT()
+MOD()
+RAND()
+ROUND()
+SQRT()
+
+---
+
+### DATE AND TIME FUNCTIONS
+
+DATE()
+HOUR()
+MINUTE()
+SECOND()
+DAYNAME()
+DAYOFMONTH()
+MONTHNAME()
+MONTH()
+YEAR()
+CURDATE()
+CURTIME()
+NOW()
+UNIX_TIMESTAMP()
+UTC_TIMESTAMP()
+
+---
+
+### \*\_FORMAT() PARAMETERS
+
+%e
+%d
+%D
+%W
+%a
+%c
+%m
+%M
+%b
+%Y
+%y
+%l
+%h
+%k
+%H
+%i
+%S
+%r
+%T
+%p
+
+---
