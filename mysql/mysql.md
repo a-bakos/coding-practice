@@ -189,3 +189,10 @@ UTC_TIMESTAMP()
 %p
 
 ---
+
+**SHOW ENGINES;**
+
+**SHOW CHARACTER SET;**
+
+**SHOW COLLATION LIKE 'charset%';**
+
