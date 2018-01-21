@@ -78,7 +78,7 @@
 
 **SELECT user_id FROM users WHERE last_name='Cooper' AND first_name='Sheldon';**
 
-**UPDATE users SET pass=SHA1('password) WHERE user_id=10 LIMIT 1;**
+**UPDATE users SET pass=SHA1('password') WHERE user_id=10 LIMIT 1;**
 
 ---
 
@@ -196,3 +196,12 @@ UTC_TIMESTAMP()
 
 **SHOW COLLATION LIKE 'charset%';**
 
+---
+
+UTC_DATE()
+
+UTC_TIME()
+
+UTC_TIMESTAMP()
+
+CONVERT_TZ(dt, from, to);
