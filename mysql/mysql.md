@@ -196,6 +196,8 @@ UTC_TIMESTAMP()
 
 **SHOW COLLATION LIKE 'charset%';**
 
+CREATE TABLE tablename (col1 COLUMNTYPE, col2 COLUMNTYPE ...) ENGINE = type;
+
 ---
 
 UTC_DATE()
@@ -205,3 +207,142 @@ UTC_TIME()
 UTC_TIMESTAMP()
 
 CONVERT_TZ(dt, from, to);
+
+---
+
+INDEX_TYPE index_name (columns)
+
+INDEX full_name (last_name, first_name)
+
+---
+
+FOREIGN KEY (item_name) REFERENCES table (column);
+
+ON DELETE action
+
+ON UPDATE action
+
+---
+
+JOIN:
+
+- SELECT forum_id FROM forums WHERE name='MySQL';
+
+- SELECT * FROM messages WHERE forum_id=1;
+
+=> SELECT what_columns FROM tableA JOIN_TYPE tableB JOIN_CLAUSE;
+
+SELECT what_columns  FROM tableA JOIN_TYPE tableB JOIN_CLAUSE JOIN_TYPE tableC JOIN_CLAUSE;
+
+---
+
+AVG()
+COUNT()
+SUM()
+
+SELECT AVG(balance) FROM accounts;
+
+SELECT MAX(balance), MIN(balance) FROM accounts;
+
+SELECT COUNT(*) FROM accounts;
+
+SELECT COUNT(DISTINCT customer_id);
+
+SELECT AVG(balance), customer_id FROM accounts GROUP BY customer_id;
+
+SELECT what_columns FROM table WHERE condition GROUP BY column ORDER BY column LIMIT x, y;
+
+---
+
+CONCAT()
+
+GROUP_CONCAT()
+
+GREATEST()
+
+SELECT GREATEST(col1, col2) FROM table;
+
+LEAST()
+
+SELECT LEAST(col1, col2) FROM table;
+
+COALESCE()
+
+SELECT COALESCE(col1, col2) FROM table;
+
+SELECT IF (condition, return_if_true, return_if_false);
+
+SELECT IF (gender='M', 'Male', 'Female');
+
+INSERT INTO people (gender) VALUES (IF(something='Male', 'M', 'F'));
+
+CASE()
+
+SELECT CASE col1 WHEN value1 THEN return_this ELSE return_that END FROM table;
+
+SELECT CASE gender WHEN 'M' THEN 'Male' ELSE 'FEMALE' END FROM people;
+
+---
+
+ALTER TABLE tablename CLAUSE
+
+ADD COLUMN
+CHANGE COLUMN
+DROP COLUMN
+ADD INDEX
+DROP INDEX
+RENAME TO
+
+ALTER TABLE messages ENGINE = MyISAM;
+ALTER TABLE messages ADD FULLTEXT (body, subject);
+
+---
+
+SHOW TABLE STATUS\G
+
+SHOW TABLE STATUS LIKE 'messages'
+
+---
+
+SELECT * FROM tablename WHERE MATCH (columns) AAINST (terms);
+
+SELECT * FROM tablename WHERE MATCH (columns) AGAINST ('terms' IN BOOLEAN MODE);
+
+SELECT * FROMT tablename WHERE MATCH (columns) AGAINST ('+database -mysql' IN BOOLEAN MODE);
+
+\+
+\-
+\~
+\*
+\<
+\>
+\" "
+()
+
+---
+
+OPTIMIZE TABLE tablename;
+
+ANALYZZE TABLE tablename;
+
+EXPLAIN()
+
+EXPLAIN EXTENDED()
+
+---
+
+START TRANSACTION;
+
+COMMIT;
+
+ROLLBACK;
+
+SAVEPOINT savename;
+ROLLBACK TO SAVEPOINT savename;
+
+---
+
+AES_ENCRYPT()
+AES_DECRYPT()
+
+INSERT INTO users (username, pass) VALUES ('troutster', AES_ENCRYPT('mypass', 'salthere'));

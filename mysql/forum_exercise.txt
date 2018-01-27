@@ -63,3 +63,40 @@ INSERT INTO messages (parent_id, forum_id, user_id, subject, body, date_entered)
 
 SELECT message_id, subject, date_entered FROM messages ORDER BY date_entered DESC LIMIT 1;
 
+SELECT forum_id FROM messages INNER JOIN forums ON messages.forum_id=forums.forum_id;
+
+SELECT m.message_id, m.subject, f.name FROM messages AS m INNER JOIN forums AS f ON m.forum_id = f.forum_id WHERE f.name = 'MySQL';
+
+SELECT m.message_id, m.subject, f.name FROM messages AS m INNER JOIN forums AS f USING (forum_id) WHERE f.name = 'MySQL';
+
+SELECT m.subject, f.name FROM messages AS m INNER JOIN forums AS f USING (forum_id) ORDER BY f.name;
+
+SELECT m.subject, DATE_FORMAT(m.date_entered, '%M %D %Y') AS Date FROM users AS u INNER JOIN messages AS m USING (user_id) WHERE username = 'funny man';
+
+SELECT f.name FROM forums AS f INNER JOIN messages AS m USING (forum_id) ORDER BY m.date_entered DESC LIMIT 5;
+
+SELECT f.*, m.subject FROM forums AS f LEFT JOIN messages AS m ON f.forum_id = m.forum_id;
+
+SELECT f.*, m.subject FROM forums AS f LEFT JOIN messages AS m USING (forum_id);
+
+SELECT f.*, m.subject FROM messages AS m RIGHT JOIN forums AS f USING (forum_id);
+
+SELECT f.name, DATE_FORMAT(m.date_entered, '%M %D, %Y') AS Date FROM forums AS f LEFT JOIN messages AS m USING (forum_id) ORDER BY date_entered DESC;
+
+SELECT m1.subject, m2.subject AS Reply FROM messages AS m1 LEFT JOIN messages AS m2 ON m1.message_id=m2.parent_id WHERE m1.parent_id=0;
+
+SELECT message_id, CASE WHEN date_entered > NOW() THEN 'Future' ELSE 'Past' END AS Posted FROM messages;
+
+SELECT f.name, COALESCE(MAX(m.date_entered), 'N/A') AS last_post FROM forums AS f LEFT JOIN messages AS m USING (forum_id) GROUP BY (m.forum_id) ORDER BY m.date_entered DESC;
+
+SELECT message_id, CASE parent_id WHEN 0 THEN subject ELSE CONCAT(subject, ' (Reply)') END AS subject FROM messages;
+
+SELECT u.username, IF(COUNT(message_id) > 0, COUNT(message_id), 'None') AS Posts
+FROM users AS u LEFT JOIN messages AS m USING (user_id) GROUP BY (u.user_id) DESC;
+
+ALTER TABLE messages ADD FULLTEXT (body, subject);
+
+SELECT subject, body FROM messages WHERE MATCH (body, subject) AGAINST ('database');
+
+SELECT * FROM message WHERE MATCH (body) AGAINST ('>database' IN BOOLEAN MODE);
+
