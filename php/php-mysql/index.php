@@ -108,5 +108,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST') {
 	</p>
 </form>
 
+<a href="view_users.php">View registered users</a>
+
 </body>
 </html>
