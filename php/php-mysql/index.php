@@ -60,7 +60,8 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST') {
 
 			// print message
 			echo '<h1>Thank you!</h1>
-			<p>You are now registered</p>';
+			<p>You are now registered</p><br>
+			<a href="index.php">Go back</a>';
 
 		} else { // if it did not run ok
 
@@ -113,6 +114,8 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST') {
 </form>
 
 <a href="view_users.php">View registered users</a>
+<br>
+<a href="password.php">Change password</a>
 
 </body>
 </html>

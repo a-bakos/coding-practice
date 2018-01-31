@@ -45,7 +45,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST') {
 		$r = @mysqli_query( $dbc, $q ); // run the query
 		$num = @mysqli_num_rows( $r );
 
-		if ( $num == 1 ) { // match was made
+		if ( $num == 1 ) { // match was made, true
 
 			// get the user id
 			$row = mysqli_fetch_array( $r, MYSQLI_NUM );
