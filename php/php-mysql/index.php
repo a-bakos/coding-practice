@@ -12,27 +12,29 @@
 // check for form submission
 if ( $_SERVER['REQUEST_METHOD'] == 'POST') {
 
+	require( 'mysqli_connect.php' ); // connect to the db
+
 	$errors = array(); // initialize and error array
 
 	// check for a first name
 	if ( empty( $_POST['first_name'] ) ) {
 		$errors[] = 'You forgot to enter your first name';
 	} else {
-		$fn = trim( $_POST['first_name'] );
+		$fn = mysqli_real_escape_string( $dbc, trim( $_POST['first_name'] ) );
 	}
 
 	// check for a last name
 	if ( empty( $_POST['last_name'] ) ) {
 		$errors[] = 'You forgot to enter your last name';
 	} else {
-		$ln = trim( $_POST['last_name'] );
+		$ln = mysqli_real_escape_string( $dbc, trim( $_POST['last_name'] ) );
 	}
 
 	// check for an email address
 	if ( empty( $_POST['email'] ) ) {
 		$errors[] = 'You forgot to enter your email';
 	} else {
-		$e = trim( $_POST['email'] );
+		$e = mysqli_real_escape_string( $dbc, trim( $_POST['email'] ) );
 	}
 
 	// check for a password and match against the confirmed password
@@ -48,7 +50,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	if ( empty( $errors ) ) { // if everything is OK
 		// register the user in the database
-		require ( 'mysqli_connect.php' ); // connect to the db
+		//require ( 'mysqli_connect.php' ); // connect to the db
 
 		// make the query
 		$q = "INSERT INTO users ( first_name, last_name, email, pass, registration_date ) VALUES ( '$fn', '$ln', '$e', SHA1('$p'), NOW() )";
@@ -84,6 +86,8 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST') {
 		echo '<p>Please try again.</p>';
 
 	}
+
+	mysqli_close( $dbc ); // close the db connection
 }
 ?>
 
