@@ -113,7 +113,9 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST') {
 	</p>
 </form>
 
-<a href="view_users.php">View registered users</a>
+<a href="view_current_users.php">View registered users</a>
+<br>
+<a href="view_users.php">View registered users OLD</a>
 <br>
 <a href="password.php">Change password</a>
 
