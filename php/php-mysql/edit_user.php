@@ -14,6 +14,8 @@
 		$id = $_POST['id'];
 	} else { // no valid id, kill the script
 		echo '<p>This page has been accessed in errorsss.</p>';
+		var_dump($_POST['id']);
+		var_dump($_GET['id']);
 		exit();
 	}
 
@@ -91,7 +93,7 @@
 		<p>Last name: <input type="text" name="last_name" size="15" maxlength="30" value="' . $row[1] . '" /></p>
 		<p>Email: <input type="text" name="email" size="20" maxlength="60" value="' . $row[2] . '" /></p>
 		<p><input type="submit" value="Submit" name="submit" /></p>
-		<p><input type="hidden" name="id" value="' . $id . '</p>
+		<p><input type="hidden" name="id" value="' . $id . '" /></p>
 		</form>';
 	} else { // not a valid user id
 		echo '<p>This page has been accessed in error</p>';

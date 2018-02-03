@@ -7,7 +7,7 @@
 <h1>Registered Users</h1>
 <?php
 
-require ( 'mysqli_connect.php' ); // connect to the db
+require_once ( 'mysqli_connect.php' ); // connect to the db
 
 // make the query
 $q = "SELECT last_name, first_name, DATE_FORMAT(registration_date, '%M %d, %Y') AS dr, user_id FROM users ORDER BY registration_date ASC";
@@ -46,13 +46,6 @@ if ( $num > 0 ) { // if it ran ok
 } else { // if it did not run ok
 
 	echo "<p>There are currently no registered users.</p>";
-
-	// public messages
-	echo '<p>The current users could not be retrieved.</p>';
-
-	// debugging message
-	echo '<p>' . mysqli_error( $dbc ) . '<br>Query: ' . $q . '</p>';
-
 }
 
 mysqli_close( $dbc );
