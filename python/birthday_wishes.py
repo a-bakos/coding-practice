@@ -1,12 +1,12 @@
 # b-day wishes
 # demonstrates keyword argument and default parameter values
 
-# positional parameters
+# positional parameters and keyword arguments
 def birthday1(name, age):
     print("Happy birthday, ", name, "! I hear you're ", age, " today.\n", sep="")
 
 # parameters with default values
-def birthday2(name= "Jackson", age = 1):
+def birthday2(name = "Jackson", age = 1):
     print("Happy birthday, ", name, "! I hear you're ", age, " today.\n", sep="")
 
 # main
