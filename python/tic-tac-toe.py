@@ -2,8 +2,7 @@
 
 # global constants
 X = "X"
-O = "0"
-
+O = "O"
 EMPTY = " "
 TIE = "TIE"
 NUM_SQUARES = 9
@@ -66,7 +65,7 @@ def display_board(board):
     print("\t", "--+--+--")
     print("\t", board[3], "|", board[4], "|", board[5])
     print("\t", "--+--+--")
-    print("\t", board[6], "|", board[7], "|", board[8])
+    print("\t", board[6], "|", board[7], "|", board[8], "\n")
 
 def legal_moves(board):
     """Create a list of legal moves"""
@@ -74,7 +73,7 @@ def legal_moves(board):
     for square in range(NUM_SQUARES):
         if board[square] == EMPTY:
             moves.append(square)
-        return moves
+    return moves
 
 def winner(board):
     """Determine the game winner"""
@@ -179,11 +178,9 @@ def main():
         if turn == human:
             move = human_move(board, human)
             board[move] = human
-
         else:
             move = computer_move(board, computer, human)
             board[move] = computer
-
         display_board(board)
         turn = next_turn(turn)
 
