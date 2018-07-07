@@ -1,0 +1,46 @@
+<!doctype html>
+<head>
+	<title>Reading from File</title>
+</head>
+<body>
+	<h1>Select text file to be read:</h1>
+	<br>
+
+	<input type="file" id="txtfiletoread" />
+	<p>Contents of the file:</p>
+
+	<div id="file_contents"></div>
+	<script>
+	window.onload = function() {
+		//Check the support for the File API support
+		if ( window.File && window.FileReader && window.FileList && window.Blob ) {
+			var fileSelected = document.getElementById( 'txtfiletoread' );
+
+			fileSelected.addEventListener( 'change', function (e) {
+				// set extension for file
+				var fileExtension = /text.*/;
+				// get file object
+				var fileTobeRead = fileSelected.files[0];
+				// check extension match
+				if ( fileTobeRead.type.match( fileExtension ) ) {
+					// initialize FileReader object to read file
+					var fileReader = new FileReader();
+					fileReader.onload = function (e) {
+						var fileContents = document.getElementById( 'file_contents' );
+						// EDIT fileReader.result if needed
+						fileContents.innerHTML = '<li>' + fileReader.result + '</li>';
+					}
+					fileReader.readAsText( fileTobeRead );
+				}
+				else {
+					alert( "Please select text file" );
+				}
+			}, false );
+		}
+	}
+	</script>
+</body>
+
+</body>
+
+
