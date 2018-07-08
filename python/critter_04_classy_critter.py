@@ -5,7 +5,7 @@ class Critter(object):
     # class attribute
     total = 0
 
-    @staticmethod
+    @staticmethod # decorator
     def status():
         print("\nThe total number of critters is", Critter.total)
 
@@ -28,5 +28,12 @@ Critter.status()
 
 print("Accessing the class attribute through an object:", end=" ")
 print(crit1.total)
+
+# I can override this as well...
+crit1.total = 50
+print(crit1.total)
+
+Critter.total = 600
+Critter.status()
 
 input("enter")
