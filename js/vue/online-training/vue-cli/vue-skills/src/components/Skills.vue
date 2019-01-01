@@ -13,6 +13,7 @@
             v-for="(data, index) in skills"
             :key="index+1">
             {{ index }} . {{ data.skill }}
+            <p v-on:click="remove(index)">[X]</p>
           </li>
         </transition-group>
       </ul>
@@ -81,6 +82,9 @@ export default {
           console.log('not valid')
         }
       })
+    },
+    remove(id) {
+      this.skills.splice(id,1)
     }
   }
 }
