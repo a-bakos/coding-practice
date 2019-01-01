@@ -8,7 +8,13 @@
 
     <div class="holder">
       <ul>
-        <li v-for="(data, index) in skills" :key="index">{{ index }}. {{ data.skill }}</li>
+        <transition-group name="list">
+          <li
+            v-for="(data, index) in skills"
+            :key="index+1">
+            {{ index }} . {{ data.skill }}
+          </li>
+        </transition-group>
       </ul>
 
       <p v-if="skills.length >= 1" >You have more than 1 skills</p>
@@ -28,7 +34,11 @@
     <p>These are the skills that you possess</p>
 
     <form @submit.prevent="addSkill">
-      <input type="text" placeholder="enter a skills you have" v-model="skill">
+      <input type="text" placeholder="enter a skills you have" v-model="skill" v-validate="'min:5'" name="skill">
+
+      <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
+        <p class="alert" v-if="errors.has( 'skill' )">{{errors.first('skill')}}</p>
+      </transition>
 
       <input type="checkbox" id="checkbox" v-model="checked">
     </form>
@@ -62,9 +72,15 @@ export default {
   },
   methods: {
     addSkill() {
-      this.skills.push({skill: this.skill})
-      this.skill = '';
-      console.log(this.checked)
+      this.$validator.validateAll().then((result) => {
+        if (result) {
+          this.skills.push({skill: this.skill})
+          this.skill = '';
+          console.log(this.checked)
+        } else {
+          console.log('not valid')
+        }
+      })
     }
   }
 }

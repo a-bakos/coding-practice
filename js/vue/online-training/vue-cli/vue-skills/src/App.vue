@@ -1,6 +1,13 @@
 <template>
   <div id="app">
-    <Skills />
+
+    <nav>
+      <router-link to="/">Home</router-link><br>
+      <router-link to="/about">about</router-link>
+    </nav>
+
+    <router-view />
+
   </div>
 </template>
 
