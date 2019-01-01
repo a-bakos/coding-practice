@@ -1,0 +1,18 @@
+ul {
+	list-style: none;
+}
+
+li {
+	font-weight: bold;
+}
+
+.alert {
+	background: yellow;
+	width: 100px;
+	height: 30px;
+	margin-bottom: 1em;
+}
+
+.another-class {
+	border: 5px dashed red;
+}
