@@ -2,6 +2,7 @@
 const {app, BrowserWindow} = require('electron')
 
 require("electron-reload")(__dirname)
+// require("devtron").install()
 
 console.log( 'main js executing' );
 
