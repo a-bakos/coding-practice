@@ -3,6 +3,8 @@ const {app, BrowserWindow} = require('electron')
 
 require("electron-reload")(__dirname)
 
+const windowStateKeeper = require("electron-window-state")
+
 console.log( 'main js executing' );
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -10,16 +12,24 @@ console.log( 'main js executing' );
 let mainWindow
 
 function createWindow () {
+
+	let winState = windowStateKeeper({
+		defaultWidth: 1200,
+		defaultHeight: 600
+	})
+
 	// Create the browser window.
 	mainWindow = new BrowserWindow({
-		width: 1200,
-		height: 800,
+		width: winState.width,
+		height: winState.height,
 		backgroundColor: '#eee',
-		x: 200,
-		y: 200,
+		x: winState.x,
+		y: winState.y,
 		minWidth: 400,
 		minHeight: 400,
 	})
+
+	winState.manage(mainWindow)
 
 	// and load the index.html of the app.
 	mainWindow.loadFile('index.html')
