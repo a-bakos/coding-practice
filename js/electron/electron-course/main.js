@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, session} = require('electron')
 
 require("electron-reload")(__dirname)
 
@@ -35,6 +35,10 @@ function createWindow () {
 	mainWindow.loadFile('index.html')
 
 	console.log(mainWindow.id);
+
+	let mainSession = mainWindow.webContents.session
+
+	console.log(mainSession);
 
 	// Open the DevTools.
 	mainWindow.webContents.openDevTools()
