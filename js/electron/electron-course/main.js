@@ -2,7 +2,6 @@
 const {app, BrowserWindow} = require('electron')
 
 require("electron-reload")(__dirname)
-// require("devtron").install()
 
 console.log( 'main js executing' );
 
@@ -14,7 +13,12 @@ function createWindow () {
 	// Create the browser window.
 	mainWindow = new BrowserWindow({
 		width: 1200,
-		height: 800
+		height: 800,
+		backgroundColor: '#eee',
+		x: 200,
+		y: 200,
+		minWidth: 400,
+		minHeight: 400,
 	})
 
 	// and load the index.html of the app.
