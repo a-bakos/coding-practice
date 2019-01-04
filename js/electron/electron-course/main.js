@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow, session} = require('electron')
+const {app, BrowserWindow, session, dialog} = require('electron')
 
 require("electron-reload")(__dirname)
 
@@ -10,6 +10,16 @@ console.log( 'main js executing' );
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
+
+function showDialog() {
+
+	dialog.showOpenDialog({
+		defaultPath: 'C:/',
+		buttonLabel: 'Select this item',
+	}, (openPath) => {
+		console.log(openPath)
+	})
+}
 
 function createWindow () {
 
@@ -28,6 +38,8 @@ function createWindow () {
 		minWidth: 400,
 		minHeight: 400,
 	})
+
+	setTimeout(showDialog, 2000)
 
 	winState.manage(mainWindow)
 
