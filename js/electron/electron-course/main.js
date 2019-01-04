@@ -63,6 +63,8 @@ function createWindow () {
 
 	globalShortcut.register('g', () => {
 		console.log('user pressed g')
+		globalShortcut.unregister('g')
+		console.log('g has been unregistered')
 	})
 
 	//setTimeout(showDialog, 1000)
