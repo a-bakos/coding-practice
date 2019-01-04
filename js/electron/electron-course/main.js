@@ -16,6 +16,11 @@ function showDialog() {
 	dialog.showOpenDialog({
 		defaultPath: 'C:/',
 		buttonLabel: 'Select this item',
+		properties: [
+			'openFile',
+			'multiSelections',
+			'createDirectory'
+		]
 	}, (openPath) => {
 		console.log(openPath)
 	})
