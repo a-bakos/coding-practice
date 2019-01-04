@@ -13,17 +13,17 @@ let mainWindow
 
 function showDialog() {
 
-	dialog.showOpenDialog({
-		defaultPath: 'C:/',
-		buttonLabel: 'Select this item',
-		properties: [
-			'openFile',
-			'multiSelections',
-			'createDirectory'
-		]
-	}, (openPath) => {
-		console.log(openPath)
-	})
+	// dialog.showOpenDialog({
+	// 	defaultPath: 'C:/',
+	// 	buttonLabel: 'Select this item',
+	// 	properties: [
+	// 		'openFile',
+	// 		'multiSelections',
+	// 		'createDirectory'
+	// 	]
+	// }, (openPath) => {
+	// 	console.log(openPath)
+	// })
 
 	// Save dialog
 	// dialog.showSaveDialog({
@@ -31,6 +31,16 @@ function showDialog() {
 	// }, (filename) => {
 	// 	console.log(filename)
 	// })
+
+	let buttons = ['Yes', 'No', 'Maybe']
+
+	dialog.showMessageBox({
+		buttons: buttons,
+		title: 'Electron message',
+		detail: 'Detailed message'
+	}, (buttonIndex) => {
+		console.log(buttonIndex)
+	})
 }
 
 function createWindow () {
