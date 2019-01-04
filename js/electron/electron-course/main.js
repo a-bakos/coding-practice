@@ -12,20 +12,7 @@ console.log( 'main js executing' );
 let mainWindow
 
 // Create App Menu
-let mainMenu = new Menu()
-
-let menuItem1 = new MenuItem({
-	label: 'App menu label',
-	submenu: [
-		{
-			label: 'Submenu label',
-		},
-		{
-			label: 'Submenu label 2',
-		},
-	]
-})
-mainMenu.append(menuItem1)
+let mainMenu = Menu.buildFromTemplate( require('./mainMenu.js') )
 
 function showDialog() {
 
