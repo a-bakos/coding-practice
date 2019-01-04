@@ -24,6 +24,13 @@ function showDialog() {
 	}, (openPath) => {
 		console.log(openPath)
 	})
+
+	// Save dialog
+	// dialog.showSaveDialog({
+	// 	defaultPath: '/'
+	// }, (filename) => {
+	// 	console.log(filename)
+	// })
 }
 
 function createWindow () {
@@ -44,7 +51,7 @@ function createWindow () {
 		minHeight: 400,
 	})
 
-	setTimeout(showDialog, 2000)
+	setTimeout(showDialog, 1000)
 
 	winState.manage(mainWindow)
 
