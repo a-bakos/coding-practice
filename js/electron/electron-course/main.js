@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, session, dialog, globalShortcut } = require('electron')
+const { app, BrowserWindow, session, dialog, globalShortcut, Menu, MenuItem } = require('electron')
 
 require("electron-reload")(__dirname)
 
@@ -10,6 +10,22 @@ console.log( 'main js executing' );
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
+
+// Create App Menu
+let mainMenu = new Menu()
+
+let menuItem1 = new MenuItem({
+	label: 'App menu label',
+	submenu: [
+		{
+			label: 'Submenu label',
+		},
+		{
+			label: 'Submenu label 2',
+		},
+	]
+})
+mainMenu.append(menuItem1)
 
 function showDialog() {
 
@@ -95,7 +111,10 @@ function createWindow () {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow)
+app.on('ready', () => {
+	createWindow()
+	Menu.setApplicationMenu(mainMenu)
+})
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
