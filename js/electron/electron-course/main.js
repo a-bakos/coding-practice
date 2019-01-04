@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow, session, dialog} = require('electron')
+const { app, BrowserWindow, session, dialog, globalShortcut } = require('electron')
 
 require("electron-reload")(__dirname)
 
@@ -61,7 +61,11 @@ function createWindow () {
 		minHeight: 400,
 	})
 
-	setTimeout(showDialog, 1000)
+	globalShortcut.register('g', () => {
+		console.log('user pressed g')
+	})
+
+	//setTimeout(showDialog, 1000)
 
 	winState.manage(mainWindow)
 
