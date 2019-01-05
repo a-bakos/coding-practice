@@ -5,6 +5,7 @@
 console.log("Log message from renderer")
 
 const {ipcRenderer} = require('electron')
+const {dialog, app} = require('electron').remote
 
 // send message to main process on channel 1
 ipcRenderer.send('channel1', 'hello from the renderer process')
@@ -22,4 +23,11 @@ ipcRenderer.on('channel1', (e, args) => {
 
 ipcRenderer.on('private', (e, args) => {
 	console.log(args)
+})
+
+dialog.showMessageBox({
+	message: 'Are you sure you want to quit?',
+	buttons: ['Yes', 'No']
+}, (buttonIndex) => {
+	if ( buttonIndex == 0 ) app.quit()
 })
