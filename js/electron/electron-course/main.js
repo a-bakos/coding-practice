@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, session, dialog, globalShortcut, Menu, MenuItem } = require('electron')
+const { app, BrowserWindow, session, dialog, globalShortcut, Menu, MenuItem, Tray } = require('electron')
 
 require("electron-reload")(__dirname)
 
@@ -9,7 +9,17 @@ console.log( 'main js executing' );
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let mainWindow
+let mainWindow,
+	tray
+
+function createTray() {
+	tray = new Tray('taryicon.png')
+	tray.setToolTip('This is the tray icon')
+
+	const trayMenu = new Menu.buildFromTemplate( require('./trayMenu.js') )
+
+	tray.setContextMenu(trayMenu)
+}
 
 // Create App Menu
 let mainMenu = Menu.buildFromTemplate( require('./mainMenu.js') )
@@ -108,6 +118,7 @@ function createWindow () {
 app.on('ready', () => {
 	createWindow()
 	Menu.setApplicationMenu(mainMenu)
+	createTray()
 })
 
 // Quit when all windows are closed.
