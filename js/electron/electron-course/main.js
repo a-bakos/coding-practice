@@ -19,6 +19,10 @@ function createTray() {
 	const trayMenu = new Menu.buildFromTemplate( require('./trayMenu.js') )
 
 	tray.setContextMenu(trayMenu)
+
+	tray.on('click', () => {
+		mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show()
+	})
 }
 
 // Create App Menu
