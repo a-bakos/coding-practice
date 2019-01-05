@@ -13,3 +13,7 @@ ipcRenderer.send('channel1', 'hello from the renderer process')
 ipcRenderer.on('channel1', (e, args) => {
 	console.log(args)
 })
+
+ipcRenderer.on('private', (e, args) => {
+	console.log(args)
+})

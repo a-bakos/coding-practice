@@ -93,6 +93,10 @@ function createWindow () {
 
 	//setTimeout(showDialog, 1000)
 
+	mainWindow.webContents.on('did-finish-load', () => {
+		mainWindow.webContents.send('private', 'Message sent from main process to main window')
+	})
+
 	winState.manage(mainWindow)
 
 	// and load the index.html of the app.
