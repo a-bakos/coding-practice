@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, session, dialog, globalShortcut, Menu, MenuItem, Tray } = require('electron')
+const { app, BrowserWindow, session, dialog, globalShortcut, Menu, MenuItem, Tray, ipcMain } = require('electron')
 
 require("electron-reload")(__dirname)
 
@@ -11,6 +11,12 @@ console.log( 'main js executing' );
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow,
 	tray
+
+
+ipcMain.on('channel1', (e, args) => {
+	console.log(args)
+	e.sender.send('channel1', 'message received on main process')
+})
 
 function createTray() {
 	tray = new Tray('taryicon.png')
