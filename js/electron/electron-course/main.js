@@ -13,6 +13,7 @@ let mainWindow
 
 // Create App Menu
 let mainMenu = Menu.buildFromTemplate( require('./mainMenu.js') )
+let contextMenu = Menu.buildFromTemplate( require('./contextMenu.js') )
 
 function showDialog() {
 
@@ -85,6 +86,12 @@ function createWindow () {
 
 	// Open the DevTools.
 	mainWindow.webContents.openDevTools()
+
+	// Context menu
+	mainWindow.webContents.on('context-menu', (e) => {
+		e.preventDefault()
+		contextMenu.popup({})
+	})
 
 	// Emitted when the window is closed.
 	mainWindow.on('closed', function () {
