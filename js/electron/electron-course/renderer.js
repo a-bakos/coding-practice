@@ -9,6 +9,12 @@ const {ipcRenderer} = require('electron')
 // send message to main process on channel 1
 ipcRenderer.send('channel1', 'hello from the renderer process')
 
+ipcRenderer.send('channel-object', {
+	name: 'attila',
+	age: 29,
+	learning: 'electron'
+})
+
 // listen for the response from main
 ipcRenderer.on('channel1', (e, args) => {
 	console.log(args)

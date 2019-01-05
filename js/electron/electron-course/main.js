@@ -18,6 +18,10 @@ ipcMain.on('channel1', (e, args) => {
 	e.sender.send('channel1', 'message received on main process')
 })
 
+ipcMain.on('channel-object', (e, args) => {
+	console.log(args.name + " is learning " + args.learning)
+})
+
 function createTray() {
 	tray = new Tray('taryicon.png')
 	tray.setToolTip('This is the tray icon')
