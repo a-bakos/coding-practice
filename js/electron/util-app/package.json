@@ -1,0 +1,13 @@
+{
+  "name": "util-app",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Attila Bakos",
+  "devDependencies": {
+    "electron": "^4.0.0"
+  }
+}
