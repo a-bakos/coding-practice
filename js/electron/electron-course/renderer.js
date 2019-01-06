@@ -2,6 +2,8 @@
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
 
+// application startup and user interaction logic
+
 console.log("Log message from renderer")
 
 const {ipcRenderer} = require('electron')
