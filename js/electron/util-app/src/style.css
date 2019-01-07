@@ -1,5 +1,69 @@
-body {
-	background: black;
-	color: white;
-	height: 100%;
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+.app {
+	background: black linear-gradient(to bottom, #104070, #003050, black);
+	color: rgba(255,255,255,0.75);
+	height: 100vh;
+	font-size: 12px;
+	font-family: sans-serif;
+	/*font: caption;*/
+	overflow: hidden;
+	/*border-left: 1px solid rgba(255,255,255,0.15);*/
+	margin: 0;
+/*	padding: 5px;*/
+	cursor: default;
+	box-shadow: 0 0 2px rgba(255,255,255,0.15), -25px 0 100px 0 rgba(0,0,0,0.25) inset;
+}
+
+.title-bar {
+	border-bottom: 1px solid rgba(255,255,255,0.25);
+	display: flex;
+}
+
+.title-bar__app-title {
+	font-size: 11px;
+	padding: 0;
+	margin: 0;
+	line-height: 1;
+}
+
+.title-bar__controls {
+	width: 100%;
+	text-align: right;
+}
+
+.title-bar__controls--button {
+	padding: 0;
+	margin: 0;
+	line-height: 1;
+	background: none;
+	border: none;
+	font-size: 11px;
+	font-family: sans-serif;
+	color: rgba(255,255,255,0.75);
+	padding: 3px 10px;
+	border-left: 1px solid rgba(255,255,255,0.25);
+}
+
+.title-bar__controls--button:hover {
+	color: rgba(255,255,255,1);
+}
+
+.title-bar__controls--button:active,
+.title-bar__controls--button:focus {
+	outline: 0;
+}
+
+.title-bar__controls--help {
+}
+
+.title-bar__controls--exit {
+}
+
+.title-bar__controls--exit:hover {
+	background: red;
 }

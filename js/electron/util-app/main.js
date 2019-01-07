@@ -26,8 +26,10 @@ function createWindow () {
 	const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize
 	console.log(width, height)
 
+	const appWidth = 150
+
 	let winState = windowStateKeeper({
-		defaultWidth: 100,
+		defaultWidth: appWidth,
 		defaultHeight: height
 	})
 
@@ -36,7 +38,7 @@ function createWindow () {
 		width: winState.width,
 		height: height,
 		backgroundColor: '#000',
-		x: width - 100,
+		x: width - appWidth,
 		y: 0,
 		minWidth: 100,
 		minHeight: 1000,
@@ -44,13 +46,12 @@ function createWindow () {
 	})
 
 	// and load the index.html of the app.
-	mainWindow.loadFile('index.html')
-
+	mainWindow.loadFile(`${__dirname}/index.html`)
 	// Open the DevTools.
-	// mainWindow.webContents.openDevTools()
+	mainWindow.webContents.openDevTools()
 
 	// Emitted when the window is closed.
-	mainWindow.on('closed', function () {
+	mainWindow.on('closed', () => {
 		// Dereference the window object, usually you would store windows
 		// in an array if your app supports multi windows, this is the time
 		// when you should delete the corresponding element.
@@ -61,10 +62,12 @@ function createWindow () {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow)
+app.on('ready', () => {
+	createWindow()
+})
 
 // Quit when all windows are closed.
-app.on('window-all-closed', function () {
+app.on('window-all-closed', () => {
 	// On macOS it is common for applications and their menu bar
 	// to stay active until the user quits explicitly with Cmd + Q
 	if (process.platform !== 'darwin') {
@@ -72,7 +75,7 @@ app.on('window-all-closed', function () {
 	}
 })
 
-app.on('activate', function () {
+app.on('activate', () => {
 	// On macOS it's common to re-create a window in the app when the
 	// dock icon is clicked and there are no other windows open.
 	if (mainWindow === null) {
