@@ -1,13 +1,47 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
+const electron = require('electron')
+
+const {
+  app,
+  BrowserWindow,
+  session,
+  dialog,
+  globalShortcut,
+  Menu,
+  MenuItem,
+  Tray,
+  ipcMain } = electron
+
+// Electron Reload package -- remove this for the production app
+require('electron-reload')(__dirname)
+
+const windowStateKeeper = require("electron-window-state")
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
 function createWindow () {
+  // Get display dimensions
+  const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize
+  console.log(width, height)
+
+  let winState = windowStateKeeper({
+    defaultWidth: 100,
+    defaultHeight: height
+  })
+
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600})
+  mainWindow = new BrowserWindow({
+    width: winState.width,
+    height: height,
+    backgroundColor: '#000',
+    x: width - 100,
+    y: 0,
+    minWidth: 100,
+    minHeight: 1000,
+    frame: false
+  })
 
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
