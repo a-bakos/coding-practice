@@ -65,5 +65,23 @@
 }
 
 .title-bar__controls--exit:hover {
-	background: red;
+	background: rgba(255,0,0,0.5);
+}
+
+.sound-selector__sound {
+	text-align: center;
+	width: 100%;
+	height: calc(100vh / 10);
+	border-bottom: 1px solid rgba(255,255,255,0.1);
+	padding: 10px;
+}
+
+.sound-selector__sound:hover {
+	background: rgba(255,255,255,0.075);
+}
+
+.sound-selector__sound--active {
+	position: relative;
+	box-shadow:
+		inset -10px 0 0 rgba(153, 255, 102, 1);
 }

@@ -1,25 +1,64 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Util App</title>
-    <link rel="stylesheet" type="text/css" href="src/style.css">
-  </head>
-  <body class="app">
-    <div class="title-bar">
-      <h1 class="title-bar__app-title">InFocus</h1>
-      <nav class="title-bar__controls">
-        <button class="title-bar__controls--button title-bar__controls--help">?</button>
-        <button class="title-bar__controls--button title-bar__controls--exit">x</button>
-      </nav>
-    </div>
-    <div class="">
+	<head>
+		<meta charset="UTF-8">
+		<title>Util App</title>
+		<link rel="stylesheet" type="text/css" href="src/style.css">
+	</head>
+	<body class="app">
+		<div class="title-bar">
+			<h1 class="title-bar__app-title">InFocus</h1>
+			<nav class="title-bar__controls">
+				<button class="title-bar__controls--button title-bar__controls--help">?</button>
+				<button class="title-bar__controls--button title-bar__controls--exit">x</button>
+			</nav>
+		</div>
+		<div class="sound-selector sound-selector__container">
+			<div class="sound-selector__sound sound-selector__sound--active">
+				Cafe
+				<audio id="sound-selector__sound--cafe" loop><source id="sound-cafe-src"></audio>
+			</div>
+			<div class="sound-selector__sound">
+				Garden
+				<audio id="sound-selector__sound--garden" loop><source id="sound-garden-src"></audio>
+			</div>
+			<div class="sound-selector__sound">
+				Night
+				<audio id="sound-selector__sound--night" loop><source id="sound-night-src"></audio>
+			</div>
+			<div class="sound-selector__sound">
+				Fire
+				<audio id="sound-selector__sound--fire" loop><source id="sound-fire-src"></audio>
+			</div>
+			<div class="sound-selector__sound">
+				City
+				<audio id="sound-selector__sound--city" loop><source id="sound-city-src"></audio>
+			</div>
+			<div class="sound-selector__sound">
+				Snow
+				<audio id="sound-selector__sound--snow" loop><source id="sound-snow-src"></audio>
+			</div>
+			<div class="sound-selector__sound">
+				Water
+				<audio id="sound-selector__sound--water" loop><source id="sound-water-src"></audio>
+			</div>
+			<div class="sound-selector__sound">
+				Dawn
+				<audio id="sound-selector__sound--dawn" loop><source id="sound-dawn-src"></audio>
+			</div>
+			<div class="sound-selector__sound">
+				Pond
+				<audio id="sound-selector__sound--pond" loop><source id="sound-pond-src"></audio>
+			</div>
+			<div class="sound-selector__sound">
+				Wind
+				<audio id="sound-selector__sound--wind" loop><source id="sound-wind-src"></audio>
+			</div>
+		</div>
 
-    </div>
-
-    <script>
-      // You can also require other files to run in this process
-      require('./renderer.js')
-    </script>
-  </body>
+		<script>
+			// You can also require other files to run in this process
+			require('./renderer.js')
+		</script>
+	</body>
 </html>
