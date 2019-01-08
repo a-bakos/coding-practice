@@ -85,3 +85,11 @@
 	box-shadow:
 		inset -10px 0 0 rgba(153, 255, 102, 1);
 }
+
+.sound-selector__icon {
+	opacity: 0.5;
+}
+
+.sound-selector__sound:hover .sound-selector__icon {
+	opacity: 1;
+}
