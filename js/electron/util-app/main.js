@@ -26,7 +26,7 @@ function createWindow () {
 	const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize
 	console.log(width, height)
 
-	const appWidth = 150
+	const appWidth = 100
 
 	let winState = windowStateKeeper({
 		defaultWidth: appWidth,
