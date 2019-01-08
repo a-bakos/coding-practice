@@ -40,8 +40,10 @@ function createWindow () {
 		backgroundColor: '#000',
 		x: width - appWidth,
 		y: 0,
-		minWidth: 100,
-		minHeight: 1000,
+		movable: false,
+		resizable: false,
+		minimizable: true,
+		fullscreenable: false,
 		frame: false
 	})
 

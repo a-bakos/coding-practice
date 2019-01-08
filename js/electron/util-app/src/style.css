@@ -7,7 +7,7 @@
 }
 
 .app {
-	background: black linear-gradient(to bottom, #104070, #003050, #001040);
+	background: black linear-gradient(to bottom, #104070, #003050, #101040);
 	color: rgba(255,255,255,0.75);
 	height: 100vh;
 	font-size: 12px;
