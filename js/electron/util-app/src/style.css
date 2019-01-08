@@ -2,21 +2,21 @@
 *:before,
 *:after {
 	box-sizing: border-box;
+	user-select: none;
+	cursor: default;
 }
 
 .app {
-	background: black linear-gradient(to bottom, #104070, #003050, black);
+	background: black linear-gradient(to bottom, #104070, #003050, #001040);
 	color: rgba(255,255,255,0.75);
 	height: 100vh;
 	font-size: 12px;
 	font-family: sans-serif;
-	/*font: caption;*/
 	overflow: hidden;
-	/*border-left: 1px solid rgba(255,255,255,0.15);*/
 	margin: 0;
-/*	padding: 5px;*/
-	cursor: default;
-	box-shadow: 0 0 2px rgba(255,255,255,0.15), -25px 0 100px 0 rgba(0,0,0,0.25) inset;
+	box-shadow:
+		0 0 2px rgba(255,255,255,0.15),
+		-25px 0 100px 0 rgba(0,0,0,0.25) inset;
 }
 
 .title-bar {
@@ -83,8 +83,20 @@
 
 .sound-selector__sound--active {
 	position: relative;
-	box-shadow:
-		inset -10px 0 0 rgba(153, 255, 102, 0.85);
+}
+
+.sound-selector__sound--active:before {
+	position: absolute;
+	content: "";
+	width: 100%;
+	height: 100%;
+	background: transparent linear-gradient(45deg, transparent 25%, rgba(102, 255, 102, 0.45));
+	top: 0;
+	right: 0;
+}
+
+.sound-selector__sound--active .sound-selector__icon {
+	opacity: 0.75;
 }
 
 .sound-selector__icon {
