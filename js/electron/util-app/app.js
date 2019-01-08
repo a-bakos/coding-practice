@@ -36,12 +36,11 @@ document.getElementById('app-control--exit').addEventListener('click', () => {
 	} else {
 		app.quit()
 	}
-
 })
 
 function inFocusSound(sound) {
-	const soundToggle = document.getElementById( 'sound-toggle--' + sound )
-	const soundPath = new Audio(__dirname + '/sounds/infocus-' + sound + '.ogg')
+	let soundToggle = document.getElementById( 'sound-toggle--' + sound )
+	let soundPath = new Audio(__dirname + '/sounds/infocus-' + sound + '.ogg')
 
 	soundToggle.addEventListener('click', () => {
 		if ( soundToggle.parentElement.classList.contains( 'sound-selector__sound--active' ) ) {
