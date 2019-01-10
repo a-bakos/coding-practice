@@ -44,11 +44,11 @@ function inFocusSound(sound) {
 	let soundPath = new Audio(__dirname + '/sounds/infocus-' + sound + '.ogg')
 
 	soundToggle.addEventListener('click', () => {
-		if ( soundToggle.parentElement.classList.contains( 'sound-selector__sound--active' ) ) {
-			soundToggle.parentElement.classList.remove( 'sound-selector__sound--active' )
+		if ( soundToggle.classList.contains( 'sound-selector__sound--active' ) ) {
+			soundToggle.classList.remove( 'sound-selector__sound--active' )
 			soundPath.pause()
 		} else {
-			soundToggle.parentElement.classList.add( 'sound-selector__sound--active' )
+			soundToggle.classList.add( 'sound-selector__sound--active' )
 			soundPath.play();
 		}
 	})
