@@ -117,3 +117,15 @@
 .sound-selector__sound:hover .sound-selector__icon {
 	opacity: 1;
 }
+
+.main-content {
+	padding: 5px;
+}
+
+.main-content--title {
+	font-size: 1em;
+}
+
+.main-content--title-sub {
+	font-size: 1em;
+}

@@ -10,7 +10,6 @@ document.getElementById('app-control--help').addEventListener('click', () => {
 		width: 500,
 		height: 500,
 		backgroundColor: '#000',
-		movable: false,
 		resizable: false,
 		minimizable: true,
 		fullscreenable: false,
@@ -22,6 +21,8 @@ document.getElementById('app-control--help').addEventListener('click', () => {
 	helpWindow.on('closed', () => {
 		helpWindow = null
 	})
+
+	helpWindow.webContents.openDevTools()
 })
 
 document.getElementById('app-control--exit').addEventListener('click', () => {

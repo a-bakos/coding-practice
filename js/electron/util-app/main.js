@@ -15,7 +15,7 @@ const {
 // Electron Reload package -- remove this for the production app
 require('electron-reload')(__dirname)
 
-const windowStateKeeper = require("electron-window-state")
+const windowStateKeeper = require('electron-window-state')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
