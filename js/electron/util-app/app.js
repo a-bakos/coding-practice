@@ -13,7 +13,8 @@ document.getElementById('app-control--help').addEventListener('click', () => {
 		resizable: false,
 		minimizable: true,
 		fullscreenable: false,
-		frame: false
+		frame: false,
+		movable: true,
 	})
 
 	helpWindow.loadFile(`${__dirname}/help.html`)
