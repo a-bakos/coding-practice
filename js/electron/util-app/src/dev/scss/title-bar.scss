@@ -1,0 +1,50 @@
+.title-bar {
+	display: flex;
+	border-bottom: 1px solid rgba(255,255,255,0.25);
+
+	&__app-title {
+		position: relative;
+		top: 4px;
+		left: 5px;
+		padding: 0;
+		margin: 0;
+		font-size: 10px;
+		font-weight: bold;
+		line-height: 1;
+	}
+
+	&__controls {
+		&--button {
+			padding: 0;
+			margin: 0;
+			padding: 3px 6px;
+			line-height: 1;
+			background: none;
+			border: none;
+			font-size: 10px;
+			font-weight: bold;
+			font-family: sans-serif;
+			color: rgba(255,255,255,0.75);
+			border-left: 1px solid rgba(255,255,255,0.25);
+
+			&:hover {
+				color: rgba(255,255,255,1);
+			}
+
+			&:active,
+			&:focus {
+				outline: 0;
+			}
+		}
+
+		&--help {
+			font-size: 8px;
+		}
+
+		&--exit {
+			&:hover {
+				background: rgba(255, 0, 0, 0.5);
+			}
+		}
+	}
+}
