@@ -1,9 +1,9 @@
 @function white($opacity) {
-	return rgba(255, 255, 255, $opacity);
+	@return rgba(255, 255, 255, $opacity);
 }
 
 @function black($opacity) {
-	return rgba(0, 0, 0, $opacity);
+	@return rgba(0, 0, 0, $opacity);
 }
 
 $blue-1: #104070;
