@@ -1,6 +1,8 @@
+@import "variables";
+
 .title-bar {
 	display: flex;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+	border-bottom: 1px solid white(0.25);
 
 	&__app-title {
 		position: relative;
@@ -31,11 +33,11 @@
 				weight: bold;
 				family: sans-serif;
 			}
-			color: rgba(255, 255, 255, 0.75);
-			border-left: 1px solid rgba(255, 255, 255, 0.25);
+			color: white(0.75);
+			border-left: 1px solid white(0.25);
 
 			&:hover {
-				color: rgba(255, 255, 255, 1);
+				color: white(1);
 			}
 
 			&:active,
