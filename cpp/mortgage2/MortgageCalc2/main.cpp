@@ -36,6 +36,8 @@ int main()
 
 	if (approved) {
 		cout << "According to our information, you are already approved for this loan.\n";
+	} else {
+		cout << "According to our information, you are not already approved for this loan\n";
 	}
 
 	// Let the reader know what to do next.
