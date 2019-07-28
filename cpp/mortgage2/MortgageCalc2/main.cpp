@@ -64,6 +64,8 @@ int main()
 	cout << ((approved) ?  "are" : "are not");
 	cout << " already approved for this loan.\n";
 
+	cout << sizeof monthly_payment << " byte(s)\n\n";
+
 	// Let the reader know what to do next.
 	cout << "Press enter to continue.\n";
 	cin.get();
